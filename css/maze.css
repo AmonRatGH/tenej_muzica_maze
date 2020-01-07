@@ -1,0 +1,72 @@
+@font-face {
+  font-family: QueenFont;
+  src: url(../font/Baskerville.ttf);
+}
+div > span{
+	font-size: 2em;
+	color: red;
+	font-family: QueenFont;
+}
+canvas{
+	border:0.25em solid black;
+	border-radius: 0.8em;
+	padding: 0.35em;
+	background-color: white;
+	margin-bottom:1em;
+	opacity: 1;
+}
+body{
+	background-color: yellow;
+}
+.else{
+	margin-top:10em;
+	border:0.25em solid black;
+	border-radius:0.8em;
+	width: 41em;
+	height: 3em;
+	background: white;
+	margin: auto;
+}
+.title{
+	background: white;
+	padding-top:0.5em;
+	padding-bottom:0.5em;
+	border:0.25em solid black;
+	border-radius: 0.8em;
+	width: 41em;
+	height: 2em;
+	margin: auto;
+	margin-bottom: 0.5em;
+}
+.main{
+	text-align: center;
+}
+#gear1, #gear2{
+	transform: rotate(20deg);
+}
+.buttonStyle{
+	background: red;
+	border: 0.2em double black;
+	border-radius: 0.5em;
+	margin: 0.25em;
+	font-size: 1.5em;
+	float: left;
+}
+select{
+	background: gray;
+	border-radius: 0.25em;
+	font-size: 1em;
+	float:left;
+	margin-top: 0.75em;
+	margin-left: 25%;
+}
+
+#video {
+	z-index:-1;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	display: none;
+}
