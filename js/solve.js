@@ -33,7 +33,7 @@ function selectDif(dif){
 		ctx.clearRect(0,0,canvas.height,canvas.width);
 		drawMazeMedium();
 		audio=document.getElementById("audio2");
-		t=700;
+		t=650;
 		imgSrc="img/newFreddie.png";
 		diff="medium";
 	}
@@ -82,7 +82,7 @@ function drawMazeMedium() {
 		canvasAnimation(w,h,dif,-160);
 	}
 	setTimeout(function(){ img.onload = function(){ ctx.drawImage(img,-1,-1); };
-    img.src = "svg/30x30.svg"; }, 750);
+    img.src = "svg/30x30.svg"; }, 800);
 }
 
 function drawMazeHard() {
@@ -156,9 +156,12 @@ function drawPath(i,x,y){
 }
 
 function getPolylinePoints(diff){
+	
+	audio.volume=1.0;
 	audio.play();
 	document.getElementById("dif").disabled = true;
 	document.getElementById("stop").disabled = false;
+	document.getElementById("solve").disabled = true; 
 	
 	if(mazeCreated==false){
 		console.log("maze not created!");
@@ -168,10 +171,6 @@ function getPolylinePoints(diff){
 	var x=[];
 	var y=[];
 	var newimg = new Image;
-	
-	for(i=0;i<pointsAr.lenght;i++){
-		
-	}
 	for(i=0;i<pointsAr.length;i++){
 		if(i%2==0){
 			x.push(pointsAr[i]);
@@ -179,32 +178,41 @@ function getPolylinePoints(diff){
 			y.push(pointsAr[i]);
 		}
 	}
-	if(dif=="hard"){
+	if(diff=="hard"){
+		console.log("hello hard");
 		var img = new Image;
 		img.src = "img/finishLine.jpg";
 		img.onload = function(){ ctx.drawImage(img,300,500) };
 	} 
 	if(diff=="medium"){
-		document.getElementById("canvas").style.opacity = "0.7";
-		document.getElementById("title").style.opacity = "0.7";
-		document.getElementById("else").style.opacity = "0.7";
+		document.getElementById("canvas").style.backgroundColor = "transparent";
+		document.getElementById("canvas").style.borderColor = "white";
+		document.getElementById("title").style.visibility = "hidden";
+		document.getElementById("else").style.backgroundColor = "transparent";
+		document.getElementById("else").style.border = "none";
 		document.getElementById("video").style.display = "inline";
 		vid.play();
 	}
+	console.log((x.length)*t);
+	setTimeout(function(){ setInterval(function(){ audio.volume -= 0.05;  }, 300);} , (x.length*t)-2000);
+	setTimeout(function(){ audio.volume=0.0; }, (x.length*t)+4000);
 	drawPath(0,x,y);
-	console.log((t*i)/2);
 	
 }
 
 function stop(audio){
-	document.getElementById("canvas").style.opacity = "1";
-	document.getElementById("title").style.opacity = "1";
-	document.getElementById("else").style.opacity = "1";
+	document.getElementById("canvas").style.backgroundColor = "white";
+	document.getElementById("title").style.backgroundColor = "white";
+	document.getElementById("else").style.backgroundColor = "white";
+	document.getElementById("canvas").style.borderColor = "black";
+	document.getElementById("else").style.border = "0.25em black solid";
+	document.getElementById("title").style.visibility = "visible";
 	vid.pause();
 	audio.pause();
 	document.getElementById("video").style.display = "none";
 	vid.currentTime = 0;
+	audio.currentTime = 0;
 	document.getElementById("dif").disabled = false;
-	document.getElementById("solve").disabled = true; 
+	document.getElementById("solve").disabled = false; 
 	change=true;
 }

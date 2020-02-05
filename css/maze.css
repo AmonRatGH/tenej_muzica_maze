@@ -16,7 +16,7 @@ canvas{
 	opacity: 1;
 }
 body{
-	background-color: yellow;
+	background-color: gray;
 }
 .else{
 	margin-top:10em;
@@ -41,24 +41,23 @@ body{
 .main{
 	text-align: center;
 }
-#gear1, #gear2{
-	transform: rotate(20deg);
-}
 .buttonStyle{
 	background: red;
 	border: 0.2em double black;
 	border-radius: 0.5em;
-	margin: 0.25em;
-	font-size: 1.5em;
+	margin: 0.2em;
+	font-size: 1.6em;
 	float: left;
+	font-family: QueenFont;
 }
 select{
 	background: gray;
 	border-radius: 0.25em;
-	font-size: 1em;
-	float:left;
-	margin-top: 0.75em;
-	margin-left: 25%;
+	font-size: 1.2em;
+	float: left;
+	margin-top: 0.6em;
+	margin-left: 23%;
+	font-family: QueenFont;
 }
 
 #video {

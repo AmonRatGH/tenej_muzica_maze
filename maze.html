@@ -25,12 +25,19 @@
 						<option value="hard">Hard Difficulty</option>
 					</select>
 					<button id="stop" class="buttonStyle" onclick="stop(audio);">Stop</button>
-					<button id="solve" class="buttonStyle" onclick="getPolylinePoints(diff);">Solve!</button>
+					<button id="solve" class="buttonStyle" onclick="getPolylinePoints(diff,audio);">Solve!</button>
 				</div>
 			</div>
 			<video autoplay muted id="video">
 				<source src="img/Doodle.mp4" type="video/mp4">
 			</video>
+		</div>
+		<div id="Modal" class="modal">
+			<div class="modal-content">
+				<span class="closeModal">&times;</span>
+				<span class="modalText">Note: This project contains audio.</span><br/>
+				<img src="img/speaker.gif" alt="Speaker" class="modalImg">
+			</div>
 		</div>
 	</body>
 	<footer>
@@ -39,5 +46,6 @@
 		<polyline id="hard" fill="none" stroke="#ff0000" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" points="314,2 314,10 330,10 330,26 346,26 346,10 442,10 442,26 410,26 410,42 426,42 426,74 410,74 410,58 394,58 394,26 378,26 378,58 362,58 362,42 330,42 330,74 314,74 314,58 266,58 266,42 250,42 250,26 234,26 234,10 218,10 218,42 234,42 234,74 218,74 218,138 202,138 202,122 186,122 186,138 170,138 170,154 218,154 218,170 234,170 234,122 250,122 250,138 266,138 266,154 250,154 250,170 282,170 282,138 298,138 298,186 282,186 282,202 314,202 314,218 330,218 330,186 362,186 362,202 346,202 346,234 266,234 266,250 234,250 234,234 218,234 218,250 138,250 138,266 154,266 154,298 170,298 170,314 154,314 154,330 170,330 170,346 202,346 202,362 122,362 122,394 90,394 90,410 74,410 74,426 106,426 106,410 122,410 122,426 170,426 170,474 154,474 154,490 138,490 138,522 106,522 106,554 122,554 122,538 170,538 170,522 154,522 154,506 186,506 186,538 202,538 202,506 218,506 218,522 250,522 250,538 266,538 266,554 282,554 282,570 314,570 314,538 346,538 346,554 330,554 330,602 314,602 314,634 330,634 330,642" />
 		<script src="js/solve.js"></script>
 		<script src="js/video.js"></script>
+		<script src="js/modal.js"></script>
 	</footer>
 </html>
