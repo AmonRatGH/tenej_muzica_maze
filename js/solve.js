@@ -15,6 +15,7 @@ var audioAEO = document.getElementById("audio0");
 var t;
 
 var i=1;
+var audioInt;
 
 let canvas=document.getElementById("canvas");
 let ctx=canvas.getContext("2d");
@@ -149,7 +150,6 @@ function drawPath(i,x,y){
 			img.src = "img/newFreddie.png";
 			img.onload = function(){ ctx.drawImage(img,x[i]-7,y[i]-7); };
 			clearTimeout(time);
-			return;
 		}
 	   drawPath(i+1,x,y)
 	},t)
@@ -194,10 +194,13 @@ function getPolylinePoints(diff){
 		vid.play();
 	}
 	console.log((x.length)*t);
-	setTimeout(function(){ setInterval(function(){ audio.volume -= 0.05;  }, 300);} , (x.length*t)-2000);
-	setTimeout(function(){ audio.volume=0.0; }, (x.length*t)+4000);
+	setTimeout(function(){ audioInt = setInterval(interval, 300);  } , (x.length*t)-2000);
+	setTimeout(function(){ audio.volume=0.0;clearInterval(audioInt); }, (x.length*t)+4000);
 	drawPath(0,x,y);
 	
+}
+function interval(){
+	audio.volume -= 0.05;
 }
 
 function stop(audio){
