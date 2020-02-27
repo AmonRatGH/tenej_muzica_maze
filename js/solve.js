@@ -130,13 +130,12 @@ function canvasAnimation(w,h,dif,i){
 function drawPath(i,x,y){
     time=setTimeout(function(){
 		console.log(t);
-		//ctx.clearRect(0,0,canvas.width,canvas.height);
-		//console.log("i+ "+i);
-		//drawDots(startX,startY,i);
 		if(change==true){
+			console.log("1234");
 			change=false;
 			return;
 		}
+		console.log(i);
 		ctx.beginPath();
 		ctx.strokeStyle = 'red';
 		ctx.lineWidth= 5;
@@ -154,12 +153,12 @@ function drawPath(i,x,y){
 			img.onload = function(){ ctx.drawImage(img,x[i]-7,y[i]-7); };
 			clearTimeout(time);
 		}
-	   drawPath(i+1,x,y)
+	   drawPath(i+1,x,y);
 	},t)
 }
 
 function getPolylinePoints(diff){
-	
+	document.getElementById("stop").disabled = false;
 	audio.volume=1.0;
 	audio.play();
 	document.getElementById("dif").disabled = true;
@@ -207,6 +206,7 @@ function interval(){
 }
 
 function stop(audio){
+	
 	document.getElementById("canvas").style.backgroundColor = "white";
 	document.getElementById("title").style.backgroundColor = "white";
 	document.getElementById("else").style.backgroundColor = "white";
@@ -218,7 +218,8 @@ function stop(audio){
 	document.getElementById("video").style.display = "none";
 	vid.currentTime = 0;
 	audio.currentTime = 0;
+	document.getElementById("stop").disabled = true;
 	document.getElementById("dif").disabled = false;
-	document.getElementById("solve").disabled = false; 
+	document.getElementById("solve").disabled = false;
 	change=true;
 }
