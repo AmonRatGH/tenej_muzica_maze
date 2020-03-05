@@ -11,6 +11,7 @@ canvas{
 	margin:auto;
 	padding: 0.2em;
 	border: 0.1em double black;
+	background-color: #D3D3D3;
 }
 .main{
 	background-color: yellow;
