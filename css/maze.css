@@ -8,64 +8,46 @@ div > span{
 	font-family: QueenFont;
 }
 canvas{
-	border:0.25em solid black;
-	border-radius: 0.8em;
-	padding: 0.35em;
-	background-color: white;
-	margin-bottom:1em;
-	opacity: 1;
-}
-body{
-	background-color: gray;
-}
-.else{
-	margin-top:10em;
-	border:0.25em solid black;
-	border-radius:0.8em;
-	width: 41em;
-	height: 3em;
-	background: white;
-	margin: auto;
-}
-.title{
-	background: white;
-	padding-top:0.5em;
-	padding-bottom:0.5em;
-	border:0.25em solid black;
-	border-radius: 0.8em;
-	width: 41em;
-	height: 2em;
-	margin: auto;
-	margin-bottom: 0.5em;
+	margin:auto;
+	padding: 0.2em;
+	border: 0.1em double black;
 }
 .main{
-	text-align: center;
+	background-color: yellow;
+	border:0.25em solid black;
+	border-radius: 0.8em;
+	padding: 1em;
+	background-color: white;
+	width:-webkit-fit-content;
+	height: -webkit-fit-content;
+	margin: auto;
 }
+body{
+	background-color: #939393;
+}
+.buttons{
+	height: 2.6em;
+	border-radius:0.8em;
+	background: white;
+	display: table;
+	margin: 0 auto;
+}
+
 .buttonStyle{
 	background: #4f8aff;
 	border: 0.2em double black;
 	border-radius: 0.5em;
 	margin: 0.2em;
-	font-size: 1.6em;
+	font-size: 1.3em;
 	float: left;
 	font-family: QueenFont;
 }
 select{
-	background: gray;
+	border: 0.2em double black;
+	background-color: #939393;
 	border-radius: 0.25em;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	float: left;
-	margin-top: 0.6em;
-	margin-left: 23%;
+	margin-top: 0.4em;
 	font-family: QueenFont;
-}
-
-#video {
-	z-index:-1;
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	min-width: 100%;
-	min-height: 100%;
-	display: none;
 }

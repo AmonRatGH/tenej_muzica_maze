@@ -16,6 +16,7 @@ var isPlaying = false;
 var audio;
 var audioAEO = document.getElementById("audio0");
 var t;
+var mazesrc;
 
 var i=1;
 var audioInt;
@@ -65,7 +66,7 @@ function drawMazeEasy() {
 	else if(w==642){
 		canvasAnimation(w,h,dif,-320);
 	}
-	
+	mazesrc="svg/20x20.svg";
     setTimeout(function(){ img.onload = function(){ ctx.drawImage(img,-1,-1); };
     img.src = "svg/20x20.svg"; }, 1500);
 }
@@ -85,6 +86,7 @@ function drawMazeMedium() {
 	else if(w==642){
 		canvasAnimation(w,h,dif,-160);
 	}
+	mazesrc="svg/30x30.svg";
 	setTimeout(function(){ img.onload = function(){ ctx.drawImage(img,-1,-1); };
     img.src = "svg/30x30.svg"; }, 800);
 }
@@ -104,7 +106,7 @@ function drawMazeHard() {
 	if(w==322){
 		canvasAnimation(w,h,dif,320);
 	}
-	
+	mazesrc="svg/40x40.svg";
     setTimeout(function(){ img.onload = function(){ ctx.drawImage(img,-1,-1); };
     img.src = "svg/40x40.svg"; }, 1750);
 }
@@ -137,8 +139,8 @@ function drawPath(i,x,y){
 		}
 		console.log(i);
 		ctx.beginPath();
-		ctx.strokeStyle = 'red';
-		ctx.lineWidth= 5;
+		ctx.strokeStyle = 'blue';
+		ctx.lineWidth= 1;
 		ctx.clearRect(x[i-1]-7,y[i-1]-7,13,13);
 		ctx.moveTo(x[i-1],y[i-1]);
 		ctx.lineTo(x[i], y[i]);
@@ -157,9 +159,12 @@ function drawPath(i,x,y){
 	},t)
 }
 
-function getPolylinePoints(diff){
+function getPolylinePoints(diff,img){
+	ctx.clearRect(0,0,canvas.height,canvas.width);
+	img.onload = function(){ ctx.drawImage(img,-1,-1); };
+	img.src = mazesrc;
 	document.getElementById("stop").disabled = false;
-	audio.volume=1.0;
+	audio.volume=0.3;
 	audio.play();
 	document.getElementById("dif").disabled = true;
 	document.getElementById("stop").disabled = false;
@@ -186,37 +191,21 @@ function getPolylinePoints(diff){
 		img.src = "img/finishLine.jpg";
 		img.onload = function(){ ctx.drawImage(img,300,500) };
 	} 
-	if(diff=="medium"){
-		document.getElementById("canvas").style.backgroundColor = "transparent";
-		document.getElementById("canvas").style.borderColor = "white";
-		document.getElementById("title").style.visibility = "hidden";
-		document.getElementById("else").style.backgroundColor = "transparent";
-		document.getElementById("else").style.border = "none";
-		document.getElementById("video").style.display = "inline";
-		vid.play();
-	}
 	console.log((x.length)*t);
 	setTimeout(function(){ audioInt = setInterval(interval, 300);  } , (x.length*t)-2000);
-	setTimeout(function(){ audio.volume=0.0;clearInterval(audioInt); }, (x.length*t)+4000);
 	drawPath(0,x,y);
 	
 }
 function interval(){
-	audio.volume -= 0.05;
+	audio.volume -= 0.03;
+	if(audio.volume<0){
+		clearInterval(audioInt);
+		return;
+	}
 }
 
 function stop(audio){
-	
-	document.getElementById("canvas").style.backgroundColor = "white";
-	document.getElementById("title").style.backgroundColor = "white";
-	document.getElementById("else").style.backgroundColor = "white";
-	document.getElementById("canvas").style.borderColor = "black";
-	document.getElementById("else").style.border = "0.25em black solid";
-	document.getElementById("title").style.visibility = "visible";
-	vid.pause();
 	audio.pause();
-	document.getElementById("video").style.display = "none";
-	vid.currentTime = 0;
 	audio.currentTime = 0;
 	document.getElementById("stop").disabled = true;
 	document.getElementById("dif").disabled = false;
