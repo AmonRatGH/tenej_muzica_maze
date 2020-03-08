@@ -165,6 +165,9 @@ function getPolylinePoints(diff,img){
 	img.src = mazesrc;
 	document.getElementById("stop").disabled = false;
 	audio.volume=0.3;
+	if(diff=="easy"){
+		audio.volume=0.5;
+	}
 	audio.play();
 	document.getElementById("dif").disabled = true;
 	document.getElementById("stop").disabled = false;
@@ -205,10 +208,7 @@ function interval(){
 }
 
 function stop(audio){
-<<<<<<< HEAD
 	clearInterval(audioInt);
-=======
->>>>>>> b10b15cf33cc8b14899c19f1be50b639be8f396a
 	audio.pause();
 	audio.currentTime = 0;
 	document.getElementById("stop").disabled = true;
