@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="SI">
+	<head>
+	<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/maze.css">
+		<link rel="stylesheet" type="text/css" href="css/modal.css">
+		<title> Freddie Goes Through a Maze </title>
+		<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+	</head>
+	<body>
+		<div class="main">
+			<div style="text-align:center;">
+				<span style="font-size:1.8em;">Freddie goes through a maze</span>
+			</div><br/>
+			<audio id="audio0" src="music/AEO.mp3" ></audio>
+			<audio id="audio1" src="music/maze.mp3" ></audio>
+			<audio id="audio2" src="music/Queen-Don't_Stop_Me_Now.mp3" ></audio>
+			<audio id="audio3" src="music/bicyle.mp3" ></audio>
+			<canvas id="canvas" class="canvas" width="322" height="332">
+				Canvas is not supported!
+			</canvas><br/>
+			<div class="buttons">
+				<select id="dif" onchange="selectDif(document.getElementById('dif').value)" >
+					<option value="" selected="">Select Difficulty</option>
+					<option value="easy">Easy Difficulty</option>
+					<option value="medium">Medium Difficulty</option>
+					<option value="hard">Hard Difficulty</option>
+				</select>
+				<button id="stop" class="buttonStyle" onclick="stop(audio);">Stop</button>
+				<button id="solve" class="buttonStyle" onclick="getPolylinePoints(diff,img);">Solve</button>
+			</div>
+		</div>
+		<div id="Modal" class="modal">
+			<div class="modal-content">
+				<span class="closeModal">&times;</span>
+				<span class="modalText">Note: This project contains audio.</span><br/>
+				<img src="img/speaker.gif" alt="Speaker" class="modalImg">
+			</div>
+		</div>
+		<footer>
+			<script src="js/solve.js"></script>
+			<script src="js/modal.js"></script>
+		</footer>
+	</body>
+</html>
