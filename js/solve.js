@@ -205,7 +205,10 @@ function interval(){
 }
 
 function stop(audio){
+<<<<<<< HEAD
 	clearInterval(audioInt);
+=======
+>>>>>>> b10b15cf33cc8b14899c19f1be50b639be8f396a
 	audio.pause();
 	audio.currentTime = 0;
 	document.getElementById("stop").disabled = true;
