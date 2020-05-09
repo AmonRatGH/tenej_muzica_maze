@@ -19,7 +19,9 @@ canvas{
 	border-radius: 0.8em;
 	padding: 1em;
 	background-color: white;
-	width:-webkit-fit-content;
+	width:max-content;
+	width:fit-content;
+	height:max-content;
 	height: -webkit-fit-content;
 	margin: auto;
 }
